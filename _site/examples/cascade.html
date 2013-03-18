@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8">
+    <title>Select - 级联操作</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="nico 0.2.4" />
+    <link type="image/x-icon" href="../static/css/favicon.ico" rel="icon">
+    <link rel="stylesheet" href="../static/css/normalize.css" />
+    <link rel="stylesheet" href="../static/css/site.css" />
+    <link rel="stylesheet" href="../static/css/solarized.css" />
+    <script src="http://static.alipayobjects.com/seajs/1.3.1/sea.js"></script>
+    <script src="../static/js/arale-helper.js"></script>
+    <script src="../static/js/site.js"></script><script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36247332-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = 'https://ssl.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<script>
+  (function() {
+    var data;
+    seajs._package = data = {"root":"arale","name":"select","version":"0.9.2","description":"模拟 select 的组件","tag":"widget","homepage":"http://aralejs.org/select","repository":{"type":"git","url":"https://github.com/aralejs/select.git"},"bugs":{"url":"https://github.com/aralejs/select/issues"},"dependencies":{"$":"$","overlay":"arale/overlay/0.9.13/overlay","templatable":"arale/widget/1.0.2/templatable"},"output":{"select.js":"."},"tests":["select"]}
+    data.dependencies && (delete data.dependencies['$'])
+    data.devDependencies && (delete data.devDependencies['$'])
+
+    seajs.config({ alias: data.dependencies })
+    seajs.config({ alias: data.devDependencies })
+    seajs.config({ alias: {"select":"../src/select.js"} })
+
+    // for alice
+    for(var dep in data.dependencies) {
+        // 如果依赖的是样式模块
+        if (data.dependencies[dep].indexOf('.css') > 0) {
+            seajs.use(dep);
+        }
+    }
+  })();
+</script>
+    <!--[if lt IE 9]>
+    <script src="../static/js/html5shiv.js"></script>
+    <![endif]-->
+    
+  </head>
+  <body>
+    <div id="body-wrapper">
+      <aside id="sidebar-wrapper">
+      <h1>
+          <a href="../">Select</a><sup class="package-root"><a href="/">arale</a></sup>
+      </h1>
+        <p class="version">当前版本：<a href="http://aralejs.org/docs/online-status.html#arale-select" title="点击查看此组件发布情况">0.9.2</a></p>
+        <p class="description">模拟 select 的组件</p>
+        <a class="source" href="https://github.com/aralejs/select.git" target="_blank">View the Project</a>
+        <ul id="navigation" role="navigation">
+          <li><a href="../">文档</a></li>
+          <li><a href="../examples/">演示</a></li>
+          <li><a href="../history.html">历史</a></li>
+          <li><a class="test-link" href="../tests/runner.html" target="_blank">用例</a></li>
+          <li><a class="issue-link" href="https://github.com/aralejs/select/issues" target="_blank">讨论</a></li>
+        </ul>
+        
+<ol id="sidenav">
+  <li><a href="../examples/">初始化</a></li>
+  <li><a href="../examples/cascade.html">级联操作</a></li>
+  <li><a href="../examples/operate.html">其他操作</a></li>
+  <li><a href="../examples/trigger.html">trigger</a></li>
+</ol>
+
+<ul id="module-output"> 
+</ul>
+<div id="output-card">
+    <h3>arale/select/0.9.2/<a target="_blank" id="output-file"></a></h3>
+    <p>这是模块的输出文件，请 require 或 seajs.use 以上 ID 来使用本文件，具体 API 请阅读文档。</p>
+</div>
+
+      </aside>
+      <div id="content-wrapper">
+        <div id="content">
+<article class="hentry">
+  <h1 class="entry-title">级联操作</h1>
+  <div class="entry-content">
+    <p><link rel="stylesheet" href="../src/select.css" /></p>
+
+<script type="text/javascript">
+var relationMap = {"WATER":{"北京":["北京"],"太阳系国":[],"重庆":["重庆"],"新疆":[],"广东":["东莞","广州","梅州","深圳","珠海"],"天津":[],"浙江":["东阳","杭州","嘉兴","金华","宁波","绍兴","台州","温州","义乌"],"省份":[],"深圳":[],"广西":["南宁"],"内蒙古":["赤峰"],"江西":["九江","南昌","新余"],"安徽":["蚌埠","合肥","淮北","淮南","黄山"],"陕西":["西安"],"辽宁":["鞍山","大连","沈阳","营口"],"山西":["太原"],"四川":["成都"],"江苏":["淮安","江都","江阴","南京","南通","苏州","宿迁","无锡","徐州","扬州","镇江"],"河北":["石家庄"],"福建":["福州","莆田","泉州","厦门"],"吉林":["吉林"],"云南":["昆明"],"湖北":["武汉"],"海南":[],"上海":["上海"],"全国":[],"湖南":["长沙","衡阳","湘潭"],"山东":["济南","青岛","潍坊","烟台"],"河南":["开封","洛阳","信阳","岳阳","郑州"],"黑龙江":["哈尔滨"]},"GAS":{"北京":["北京"],"太阳系国":[],"重庆":["重庆"],"新疆":[],"广东":["东莞","佛山","广州","深圳"],"天津":[],"浙江":["杭州","宁波","温州","浙江全省"],"省份":[],"深圳":[],"广西":[],"内蒙古":["呼和浩特"],"江西":["南昌","新余"],"安徽":["合肥","淮北"],"陕西":["西安"],"辽宁":["鞍山","朝阳","大连","沈阳"],"山西":[],"四川":["成都"],"江苏":["淮安","南京","南通","苏州","无锡","徐州","扬州","宜兴","镇江"],"河北":["石家庄"],"福建":["福州"],"吉林":[],"云南":["昆明"],"湖北":[],"海南":["海口"],"上海":["上海"],"全国":[],"湖南":[],"山东":["济南","青岛","潍坊","烟台"],"河南":["开封","洛阳","郑州"],"黑龙江":["哈尔滨"]},"ELECTRIC":{"北京":["北京"],"太阳系国":[],"重庆":["重庆"],"新疆":[],"广东":["潮州","东莞","佛山","广州","河源","惠州","江门","揭阳","梅州","汕尾","深圳","中山","珠海"],"天津":[],"浙江":["杭州","湖州","嘉兴","金华","丽水","宁波","衢州","绍兴","台州","温州","舟山"],"省份":[],"深圳":[],"广西":["北海","防城港","贵港","桂林","河池","来宾","柳州","南宁","玉林"],"内蒙古":["阿拉善盟","巴彦淖尔","包头","赤峰","鄂尔多斯","呼和浩特","呼伦贝尔","通辽","乌海","乌兰察布","锡林郭勒","兴安盟","准格尔"],"江西":["抚州","赣州","吉安","景德镇","九江","南昌","萍乡","上饶","新余","宜春","鹰潭"],"贵州":["安顺","毕节","都匀","贵阳","凯里","六盘水","铜仁","兴义","遵义"],"安徽":["安徽全省","安庆","蚌埠","滁州","合肥","淮北","淮南","黄山","宿州"],"陕西":["西安"],"辽宁":["鞍山","本溪","朝阳","大连","丹东","抚顺","阜新","葫芦岛","盘锦","沈阳","铁岭","营口"],"山西":["太原"],"青海":["西宁"],"四川":["成都","绵阳","自贡"],"江苏":["常州","淮安","江苏全省","连云港","南京","南通","苏州","宿迁","泰州","无锡","徐州","盐城","扬州","镇江"],"福建":["福州","龙岩","南平","宁德","莆田","泉州","三明","厦门","漳州"],"吉林":["白城","白山","长春","吉林","辽源","四平","松原","通化","延边州延吉"],"上海":["上海"],"云南":["昆明"],"湖北":["鄂州","湖北全省","黄冈","黄石","荆门","荆州","十堰","随州","武汉","仙桃","咸宁","襄樊","孝感","宜昌"],"海南":["海口"],"全国":[],"甘肃":["白银","甘南","嘉峪关","金昌","酒泉","张掖"],"湖南":["长沙","常德","衡阳","湖南全省"],"山东":["济南","青岛","潍坊","烟台"],"河南":["安阳","鹤壁","济源","焦作","开封","洛阳","漯河","南阳","平顶山","濮阳","三门峡","商丘","新乡","信阳","许昌","郑州","周口","驻马店"],"黑龙江":["哈尔滨","黑龙江全省"]}};
+
+function parseProv(type) {
+    var o = relationMap[type], result = [];
+    result.push({value:'',text:'请选择', selected: true})
+    for (i in o) {
+        var prov = i;
+        result.push({value:prov,text:prov, selected: false})
+    }
+    return result;
+}
+function parseCity(type, prov) {
+    var o = relationMap[type], cities = o[prov], result = [];
+    result.push({value:'',text:'请选择', selected: true})
+    for (i in cities) {
+        var city = cities[i];
+        result.push({value:city,text:city, selected: false})
+    }
+    return result;
+}
+</script>
+
+<p><select id="exampel6-1">
+    <option value="WATER">水费</option>
+    <option value="ELECTRIC">电费</option>
+</select>
+<a href="#" id="exampel6-2">请选择</a>
+<a href="#" id="exampel6-3">请选择</a></p>
+
+<p>通过 change 事件监听切换，通知其他 select 更新数据</p>
+
+<script>
+seajs.use(['select'], function(Select) {
+    var a1 = new Select({
+        trigger: '#exampel6-1'
+    }).on('change', function(target) {
+        var type = target.attr('data-value');
+        var model = parseProv(type);
+        console.log(model);
+        a2.syncModel(model);
+    });
+
+    var a2 = new Select({
+        trigger: '#exampel6-2',
+        model: parseProv('WATER')
+    }).on('change', function(target) {
+        var prov = target.attr('data-value');
+        var model = parseCity(a1.get('value'), prov);
+        a3.syncModel(model);
+    });
+
+    var a3 = new Select({
+        trigger: '#exampel6-3',
+        model: parseCity('WATER')
+    });
+
+    a1.render();
+    a2.render();
+    a3.render();
+});
+</script>
+<div class="highlight"><pre><code class="javascript">seajs.use([<span class="string">'arale/select/0.9.2/select'</span>], <span class="keyword">function</span>(Select) {
+    <span class="keyword">var</span> a1 = <span class="keyword">new</span> Select({
+        trigger: <span class="string">'#exampel6-1'</span>
+    }).on(<span class="string">'change'</span>, <span class="keyword">function</span>(target) {
+        <span class="keyword">var</span> type = target.attr(<span class="string">'data-value'</span>);
+        <span class="keyword">var</span> model = parseProv(type);
+        console.log(model);
+        a2.syncModel(model);
+    });
+
+    <span class="keyword">var</span> a2 = <span class="keyword">new</span> Select({
+        trigger: <span class="string">'#exampel6-2'</span>,
+        model: parseProv(<span class="string">'WATER'</span>)
+    }).on(<span class="string">'change'</span>, <span class="keyword">function</span>(target) {
+        <span class="keyword">var</span> prov = target.attr(<span class="string">'data-value'</span>);
+        <span class="keyword">var</span> model = parseCity(a1.get(<span class="string">'value'</span>), prov);
+        a3.syncModel(model);
+    });
+
+    <span class="keyword">var</span> a3 = <span class="keyword">new</span> Select({
+        trigger: <span class="string">'#exampel6-3'</span>,
+        model: parseCity(<span class="string">'WATER'</span>)
+    });
+
+    a1.render();
+    a2.render();
+    a3.render();
+});
+</code></pre></div>
+  </div>
+</article>
+</div>
+      </div>
+      
+    </div>
+    <div id="footer-wrapper">
+      <footer>
+        <p class="powered"><a href="http://aralejs.org">Arale</a> •
+<a href="http://aliceui.org">Alice</a> •
+<a href="http://seajs.org">SeaJS</a> •
+<a href="https://github.com/spmjs/spm">spm</a> •
+<a href="http://lab.lepture.com/nico/">nico</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8">
+    <title>Select - HISTORY</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="nico 0.2.4" />
+    <link type="image/x-icon" href="./static/css/favicon.ico" rel="icon">
+    <link rel="stylesheet" href="./static/css/normalize.css" />
+    <link rel="stylesheet" href="./static/css/site.css" />
+    <link rel="stylesheet" href="./static/css/solarized.css" />
+    <script src="http://static.alipayobjects.com/seajs/1.3.1/sea.js"></script>
+    <script src="./static/js/arale-helper.js"></script>
+    <script src="./static/js/site.js"></script><script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36247332-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = 'https://ssl.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<script>
+  (function() {
+    var data;
+    seajs._package = data = {"root":"arale","name":"select","version":"0.9.2","description":"模拟 select 的组件","tag":"widget","homepage":"http://aralejs.org/select","repository":{"type":"git","url":"https://github.com/aralejs/select.git"},"bugs":{"url":"https://github.com/aralejs/select/issues"},"dependencies":{"$":"$","overlay":"arale/overlay/0.9.13/overlay","templatable":"arale/widget/1.0.2/templatable"},"output":{"select.js":"."},"tests":["select"]}
+    data.dependencies && (delete data.dependencies['$'])
+    data.devDependencies && (delete data.devDependencies['$'])
+
+    seajs.config({ alias: data.dependencies })
+    seajs.config({ alias: data.devDependencies })
+    seajs.config({ alias: {"select":"./src/select.js"} })
+
+    // for alice
+    for(var dep in data.dependencies) {
+        // 如果依赖的是样式模块
+        if (data.dependencies[dep].indexOf('.css') > 0) {
+            seajs.use(dep);
+        }
+    }
+  })();
+</script>
+    <!--[if lt IE 9]>
+    <script src="./static/js/html5shiv.js"></script>
+    <![endif]-->
+    
+  </head>
+  <body>
+    <div id="body-wrapper">
+      <aside id="sidebar-wrapper">
+      <h1>
+          <a href="./">Select</a><sup class="package-root"><a href="/">arale</a></sup>
+      </h1>
+        <p class="version">当前版本：<a href="http://aralejs.org/docs/online-status.html#arale-select" title="点击查看此组件发布情况">0.9.2</a></p>
+        <p class="description">模拟 select 的组件</p>
+        <a class="source" href="https://github.com/aralejs/select.git" target="_blank">View the Project</a>
+        <ul id="navigation" role="navigation">
+          <li><a href="./">文档</a></li>
+          <li><a href="./examples/">演示</a></li>
+          <li><a href="history.html">历史</a></li>
+          <li><a class="test-link" href="tests/runner.html" target="_blank">用例</a></li>
+          <li><a class="issue-link" href="https://github.com/aralejs/select/issues" target="_blank">讨论</a></li>
+        </ul>
+        
+ 
+      </aside>
+      <div id="content-wrapper">
+        <div id="content">
+<article class="hentry">
+  <h1 class="entry-title">HISTORY</h1>
+  <div class="meta">2013-03-18</div>
+  <div><a href="https://github.com/aralejs/aralejs.org/wiki/%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95%E4%B9%A6%E5%86%99%E8%A7%84%E8%8C%83">书写规范</a></div>  
+  <div class="entry-content">
+    <h2 id="0-9-2">0.9.2</h2>
+<p><code>tag:new</code> <a href="https://github.com/aralejs/select/issues/31">#31</a> 增加 disabledChange 事件</p>
+
+<p><code>tag:improved</code> <a href="https://github.com/aralejs/select/issues/30">#30</a> 支持解析 html</p>
+
+<p><code>tag:improved</code> <a href="https://github.com/aralejs/select/issues/17">#17</a> 支持 triggerTemplate</p>
+<h2 id="0-9-1">0.9.1</h2>
+<p><code>tag:improved</code> 升级 overlay 到 0.9.13</p>
+<h2 id="0-9-0">0.9.0</h2>
+<p><code>tag:new</code> <a href="https://github.com/aralejs/select/issues/4">#4</a> 支持操作 option</p>
+
+<p><code>tag:new</code> <a href="https://github.com/aralejs/select/issues/8">#8</a> 支持表单项</p>
+
+<p><code>tag:new</code> <a href="https://github.com/aralejs/select/issues/9">#9</a> trigger 和浮层应该等宽</p>
+
+<p><code>tag:new</code> <a href="https://github.com/aralejs/select/issues/11">#11</a> firefox css(&#39;border&#39;) 失效</p>
+
+<p><code>tag:new</code> <a href="https://github.com/aralejs/select/issues/15">#15</a> destroy的bug</p>
+<h3 id="0-8-0">0.8.0</h3>
+<p><code>tag:new</code> 初始化</p>
+
+  </div>
+</article>
+<script>
+seajs.use('$', function($) {
+    $('#content code').each(function(index, item) {
+        item = $(item);
+        var matcher = item.html().match(/^tag:(.+)/i);
+        if (matcher) {
+            item.parent().css('padding-left', '150px');
+            item.replaceWith('<span class="history-tag history-tag-'+matcher[1]+'">'+matcher[1]+'</span>');
+        }
+    });
+});
+</script>
+<style>
+#content p {
+    border-top: 1px dashed #CCCCCC;
+    font-size: 16px;
+    margin: 12px 0;
+    padding: 12px 0 0 0;
+    position: relative;
+}
+#content h2 {
+    margin-top: 60px;
+    font-family: Georgia;
+    border-bottom: none;
+}
+</style>
+</div>
+      </div>
+      
+    </div>
+    <div id="footer-wrapper">
+      <footer>
+        <p class="powered"><a href="http://aralejs.org">Arale</a> •
+<a href="http://aliceui.org">Alice</a> •
+<a href="http://seajs.org">SeaJS</a> •
+<a href="https://github.com/spmjs/spm">spm</a> •
+<a href="http://lab.lepture.com/nico/">nico</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
